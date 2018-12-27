@@ -1,0 +1,40 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><title>Signal peptide predictor.md</title><style></style></head><body id="preview">
+<h1><a id="Signal_peptide_predictor_0"></a>Signal peptide predictor</h1>
+<p>This is signal peptide predictor project authored by Josip Matak and Josip Mrđen. Program was built in Python version 3.6 using different modules. Feature extraction and data processing has been done in Numpy module, while Matplotlib was useful for draw diagrams of learning process and visualizing prediction results. All machine learning techniques which mostly include working with neural networks were done using Keras, API built on top of Tensorflow library.</p>
+<h3><a id="Installation_3"></a>Installation</h3>
+<p>To install all necessary dependecies, follow next steps.</p>
+<pre><code class="language-sh">$ <span class="hljs-built_in">cd</span> src
+$ pip3 install requirements.txt
+</code></pre>
+<p>To run program, there needs to be data provided from Git, you can run it by typing.</p>
+<pre><code class="language-sh">$ chmod +x peptide_predictor.py
+$ ./peptide_predictor.py
+</code></pre>
+<h3><a id="Manual_18"></a>Manual</h3>
+<p>Working in peptide predictor is not so seamless as it should be, so lets run throuh some useful commands.</p>
+<p>Next one shows help in terminal, with useful command arguments.</p>
+<pre><code class="language-sh">$ /peptide_predictor.py -h
+</code></pre>
+<p>For training peptide predictor with data in /data file, you should run next command. Window size will be default, 21, while log model are going to be stored in /models with current timestamp.</p>
+<pre><code class="language-sh">$ /peptide_predictor.py --train
+</code></pre>
+<p>To specify window length, add -w argument. Be careful because it requires odd number and may result with awkwardly large number of training samples.</p>
+<pre><code class="language-sh">$ /peptide_predictor.py --train -w <span class="hljs-number">23</span>
+</code></pre>
+<p>Specify hidden layer architecture by simply adding -a. That will result in architecture of INPUT x 128 x 64 x 32 x OUTPUT</p>
+<pre><code class="language-sh">$ /peptide_predictor.py --train <span class="hljs-operator">-a</span> <span class="hljs-number">128</span> <span class="hljs-number">64</span> <span class="hljs-number">32</span>
+</code></pre>
+<p>This command will start testing model stored in following folder, on default test data placed in /data/test.fa. Output will be written in “output” file, and there will be no plotting. Be sure that window size fits given model, it is default if nothing is provided.</p>
+<pre><code class="language-sh">$ /peptide_predictor.py --test -m model_2018-<span class="hljs-number">12</span>-<span class="hljs-number">14</span>-<span class="hljs-number">20</span>:<span class="hljs-number">41</span>:<span class="hljs-number">43</span> -w <span class="hljs-number">23</span>
+</code></pre>
+<p>If you want to change testing data, it can be done with following command. It will check file in /data + “/argument”</p>
+<pre><code class="language-sh">$ /peptide_predictor.py --test -m model_2018-<span class="hljs-number">12</span>-<span class="hljs-number">14</span>-<span class="hljs-number">20</span>:<span class="hljs-number">41</span>:<span class="hljs-number">43</span> -w <span class="hljs-number">23</span> <span class="hljs-operator">-f</span> proteomes/UP000005640_9606.fasta
+</code></pre>
+<p>Define specific output file name with following command</p>
+<pre><code class="language-sh">$ /peptide_predictor.py --test -m model_2018-<span class="hljs-number">12</span>-<span class="hljs-number">14</span>-<span class="hljs-number">20</span>:<span class="hljs-number">41</span>:<span class="hljs-number">43</span> -w <span class="hljs-number">23</span> -o outputfile.txt
+</code></pre>
+<p>Finally, you can plot each of runs in testing data with next command.</p>
+<pre><code class="language-sh">$ /peptide_predictor.py --test -m model_2018-<span class="hljs-number">12</span>-<span class="hljs-number">14</span>-<span class="hljs-number">20</span>:<span class="hljs-number">41</span>:<span class="hljs-number">43</span> -w <span class="hljs-number">23</span> <span class="hljs-operator">-f</span> proteomes/UP000005640_9606.fasta --plot
+</code></pre>
+
+</body></html>

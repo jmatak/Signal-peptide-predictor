@@ -1,0 +1,47 @@
+Lab notebook for course Applied Bioinformatics at KTH. 
+Project Assignment - Predicting signal peptides
+Authors: Josip Matak, Josip Mrđen
+Year: 2018/2019, P2
+
+
+
+December 4th
+----------------------
+Added dataset into the project, it is in Fasta like format with folders representing the 
+sequences which contain or don't contain signal peptides.
+Labels - n, h, c if peptide is present, other letters for no peptide 
+Signal peptide mostly at the beginning of the protein sequence. 
+
+December 5th
+----------------------
+Added parsing of the files with BioPython to classes in Python (for loading the dataset).
+
+
+December 7th
+------------------------
+Added staticstics for the n, h, c part and splitting into training and testing set. 
+Statistics include average length and standard deviation of each part. Serves as a module.
+
+December 8th
+-------------------------
+Created prototype of the model, saving and loading. 
+Prototype is a neural network based, 
+Sliding window implemented and data is augmented.
+
+December 10th 
+--------------------------
+Added human and wild boar proteomes
+
+December 11th
+---------------------------
+Improving modularity of code
+
+December 14th
+---------------------------
+First training results with all the data provided are done, with sliding window. Splitting 0.8 of
+training and validation, 82% success.
+
+
+December 26th
+---------------------------
+Arguments of command line added for robust training of data. 
