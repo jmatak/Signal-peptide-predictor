@@ -21,40 +21,40 @@ Working in peptide predictor is not so seamless as it should be, so lets run thr
 
 Next one shows help in terminal, with useful command arguments.
 ```sh
-$ /peptide_predictor.py -h
+$ ./peptide_predictor.py -h
 ```
 
 For training peptide predictor with data in /data file, you should run next command. Window size will be default, 21, while log model are going to be stored in /models with current timestamp.
 ```sh
-$ /peptide_predictor.py --train
+$ ./peptide_predictor.py --train
 ```
 
 To specify window length, add -w argument. Be careful because it requires odd number and may result with awkwardly large number of training samples.
 ```sh
-$ /peptide_predictor.py --train -w 23
+$ ./peptide_predictor.py --train -w 23
 ```
 
 Specify hidden layer architecture by simply adding -a. That will result in architecture of INPUT x 128 x 64 x 32 x OUTPUT
 ```sh
-$ /peptide_predictor.py --train -a 128 64 32
+$ ./peptide_predictor.py --train -a 128 64 32
 ```
 
 This command will start testing model stored in following folder, on default test data placed in /data/test.fa. Output will be written in "output" file, and there will be no plotting. Be sure that window size fits given model, it is default if nothing is provided.
 ```sh
-$ /peptide_predictor.py --test -m model_2018-12-14-20:41:43 -w 23
+$ ./peptide_predictor.py --test -m model_2018-12-14-20:41:43 -w 23
 ```
 
 If you want to change testing data, it can be done with following command. It will check file in /data + "/argument"
 ```sh
-$ /peptide_predictor.py --test -m model_2018-12-14-20:41:43 -w 23 -f proteomes/UP000005640_9606.fasta
+$ ./peptide_predictor.py --test -m model_2018-12-14-20:41:43 -w 23 -f proteomes/UP000005640_9606.fasta
 ```
 
 Define specific output file name with following command
 ```sh
-$ /peptide_predictor.py --test -m model_2018-12-14-20:41:43 -w 23 -o outputfile.txt
+$ ./peptide_predictor.py --test -m model_2018-12-14-20:41:43 -w 23 -o outputfile.txt
 ```
 
 Finally, you can plot each of runs in testing data with next command.
 ```sh
-$ /peptide_predictor.py --test -m model_2018-12-14-20:41:43 -w 23 -f proteomes/UP000005640_9606.fasta --plot
+$ ./peptide_predictor.py --test -m model_2018-12-14-20:41:43 -w 23 -f proteomes/UP000005640_9606.fasta --plot
 ```
