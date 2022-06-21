@@ -39,7 +39,7 @@ Markdown==3.0.1
 MarkupSafe==1.0
 matplotlib==3.0.2
 netifaces==0.10.4
-numpy==1.15.4
+numpy==1.22.0
 oauth==1.0.1
 olefile==0.45.1
 pefile==2018.8.8
